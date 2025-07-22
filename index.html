@@ -3,7 +3,6 @@
 <head>
   <meta charset="utf-8">
   <title>Puppy Linux in the Browser</title>
-  <script src="https://copy.sh/v86/build/v86_all.js"></script>
   <style>
     body {
       background: #1a1a1a;
@@ -20,12 +19,15 @@
 </head>
 <body>
   <h1>🐾 Puppy Linux in Your Browser</h1>
-  <p>Booting Slacko Puppy Linux 6.3.2 using <a href="https://github.com/copy/v86" style="color:#00ffcc">v86</a></p>
+  <p>Running Slacko Puppy Linux 6.3.2 via <a href="https://github.com/copy/v86" style="color:#00ffcc">v86</a></p>
 
   <canvas id="screen" width="800" height="600"></canvas>
 
+  <!-- Load v86 AFTER the page content -->
+  <script src="https://copy.sh/v86/build/v86_all.js" onload="startEmulator()"></script>
+
   <script>
-    window.onload = function () {
+    function startEmulator() {
       const emulator = new V86Starter({
         memory_size: 256 * 1024 * 1024,
         vga_memory_size: 8 * 1024 * 1024,
