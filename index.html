@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <title>Puppy Linux in the Browser</title>
-  <script src="https://copy.sh/v86/build/libv86.js"></script>
+  <script src="https://copy.sh/v86/build/v86_all.js"></script>
   <style>
     body {
       background: #1a1a1a;
@@ -13,22 +13,21 @@
       padding: 2rem;
     }
     canvas {
-      margin-top: 1rem;
       border: 2px solid #00ffcc;
+      margin-top: 1rem;
     }
   </style>
 </head>
 <body>
   <h1>🐾 Puppy Linux in Your Browser</h1>
-  <p>Running Slacko Puppy Linux 6.3.2 using <a href="https://github.com/copy/v86" style="color:#00ffcc">v86</a></p>
+  <p>Booting Slacko Puppy Linux 6.3.2 via <a href="https://github.com/copy/v86" style="color:#00ffcc">v86</a></p>
 
   <canvas id="screen" width="800" height="600"></canvas>
 
   <script>
     const emulator = new V86Starter({
-      wasm_path: "https://copy.sh/v86/build/v86.wasm",
-      memory_size: 268435456, // 256 MB
-      vga_memory_size: 8388608,
+      memory_size: 256 * 1024 * 1024,
+      vga_memory_size: 8 * 1024 * 1024,
       screen_container: document.getElementById("screen"),
       bios: {
         url: "https://copy.sh/v86/bios/seabios.bin"
