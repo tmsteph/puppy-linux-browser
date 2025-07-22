@@ -23,9 +23,7 @@
 
   <canvas id="screen" width="800" height="600"></canvas>
 
-  <!-- Load v86 AFTER the page content -->
-  <script src="https://copy.sh/v86/build/v86_all.js" onload="startEmulator()"></script>
-
+  <!-- Define the function BEFORE loading v86 -->
   <script>
     function startEmulator() {
       const emulator = new V86Starter({
@@ -45,5 +43,11 @@
       });
     }
   </script>
+
+  <!-- This script loads v86 and calls startEmulator when it's ready -->
+  <script src="https://copy.sh/v86/build/v86_all.js" onload="startEmulator()"></script>
+
+  <!-- Optional: fix favicon error -->
+  <link rel="icon" href="data:,">
 </body>
 </html>
